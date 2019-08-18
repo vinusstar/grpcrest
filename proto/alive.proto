@@ -1,0 +1,17 @@
+syntax = "proto3";
+package gateway;
+import "google/api/annotations.proto";
+
+service AliveService {
+    rpc GetStatus(Empty) returns (AliveResponse){
+        option (google.api.http) = {
+            get : "/alive"
+        };
+    }
+}
+
+message Empty {}
+
+message AliveResponse {
+    bool status = 1;
+}
